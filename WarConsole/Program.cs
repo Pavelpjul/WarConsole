@@ -1,10 +1,10 @@
 ﻿namespace War
-{
+{   
     class Program
     {
         static List<Player> listPlayers = new List<Player>();
-
         static List<double> decks = new List<double>();
+
         static void Main()
         {
             Casino casino = new Casino();
@@ -62,15 +62,8 @@
                 bool equals = false;
                 for (int i = 0; i < listPlayers.Count; i++)
                 {
-                    if (playingCards[i] < casinoCard)
-                    {
-                        winLoss[i] = 0;
-
-                    }
-                    else if (playingCards[i] > casinoCard)
-                    {
-                        winLoss[i] = 1;
-                    }
+                    if (playingCards[i] < casinoCard) winLoss[i] = 0;              
+                    else if (playingCards[i] > casinoCard) winLoss[i] = 1;                    
                     else
                     {
                         winLoss[i] = 2;
@@ -98,10 +91,8 @@
                                 if (choice == "Y" || choice == "N") break;
                             }
                             int playerCash = listPlayers[i].SeeCash();
-                            if (choice == "N" && playerCash < (bets[i] * 2))
-                            {
-                                winLoss[i] = 0;
-                            }
+                            
+                            if (choice == "N" && playerCash < (bets[i] * 2)) winLoss[i] = 0;                           
                             else
                             {
                                 double newCard = decks[0];
@@ -109,17 +100,9 @@
                                 decks.RemoveAt(0);
                                 bets[i] = bets[i] * 2;
 
-                                if (newCard > casinoCard)
-                                {
-                                    winLoss[i] = 1;
-
-                                }
-                                else
-                                {
-                                    winLoss[i] = 0;
-                                }
+                                if (newCard > casinoCard) winLoss[i] = 1;                                
+                                else winLoss[i] = 0;            
                             }
-
                         }
                     }
                     equals = false;

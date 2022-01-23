@@ -44,7 +44,6 @@
 
         internal class Casino : Player
         {
-
             public Casino()
             {
                 cash = 1000000;

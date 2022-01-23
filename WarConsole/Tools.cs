@@ -18,17 +18,14 @@
         static public int IfInt(string test)
         {
             int one;
-            bool ifInt = int.TryParse(test, out one);
+            bool ifInt = int.TryParse(test, out one);          
             
-            
-
             while (!ifInt)
             {
                 Console.WriteLine("Please enter an integer");
                 test = Console.ReadLine();
                 ifInt = int.TryParse(test, out one);
                 if (ifInt) break;
-
             }
             return one;
         }
@@ -39,7 +36,6 @@
             double card = 0.00;
             for (int i = 0; i < 13; i++)
             {
-
                 for (int j = 0; j < 4; j++)
                 {
                     for (int k = 0; k < 8; k++)
@@ -47,10 +43,9 @@
                         cards[countCards] = (double)i + (double)j / 10;
                         countCards++;
                     }
-
                 }
-
             }
+
             List<double> cardsList = new List<double>();
             Random random = new Random();
 
@@ -61,7 +56,6 @@
                 {
                     cardsList.Add(cards[index]);
                     cards[index] = 100.0;
-
                 }
                 if (cardsList.Count == 416) break;
             }
